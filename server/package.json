@@ -1,0 +1,25 @@
+{
+  "name": "todo-server",
+  "version": "1.0.0",
+  "description": "The server side of the Todo project, using MongoDB, Node.js, and Express.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winwust/react-todo.git"
+  },
+  "author": "Win Wu <win.wu@skilltrellis.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/winwust/react-todo/issues"
+  },
+  "homepage": "https://github.com/winwust/react-todo#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.11"
+  }
+}
