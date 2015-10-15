@@ -1,5 +1,4 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
-var ActionObject = require('../actions/ActionObject');
 var TodoConstants = require('../constants/TodoConstants');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
@@ -31,15 +30,17 @@ var TodoStore = assign({}, EventEmitter.prototype, {
     }
 });
 
-AppDispatcher.register(function(actionObj) {
-    switch(actionObj.actionType) {
+var actionHandler = function(actionObj) {
+    switch(actionObj.type) {
         case TodoConstants.actionType.LIST_ITEMS:
-            _createTodos(actionObj.payload);
+            _createTodos(actionObj.data);
             TodoStore.emitChange();
             break;
         default:
             break;
     }
-});
+};
+
+AppDispatcher.register(actionHandler);
 
 module.exports = TodoStore;

@@ -1,6 +1,6 @@
 var TodoConstants = require('../constants/TodoConstants');
 
-var ServerEventHandlers = require('../actions/ServerEventHandlers');
+var ServerEventHandlers = require('../actionhelpers/ServerEventHandlers');
 
 module.exports = {
     getTodoList: function() {

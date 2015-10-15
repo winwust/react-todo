@@ -1,5 +1,5 @@
 var React = require('react');
-var UIEventHandlers = require('../actions/UIEventHandlers');
+var UIEventHandlers = require('../actionhelpers/UIEventHandlers');
 var TodoConstants = require('../constants/TodoConstants');
 
 var TodoTextInput = React.createClass({
