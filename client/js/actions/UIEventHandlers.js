@@ -1,12 +1,12 @@
 var TodoAPIUtil = require('../utils/TodoAPIUtil');
 
-var TodoActions = {
-    create: function(text) {
+var UIEventHandlers = {
+    createTodo: function(text) {
         TodoAPIUtil.createTodo(text.trim());
     },
-    remove: function(id) {
+    removeTodo: function(id) {
         TodoAPIUtil.removeTodo(id);
     }
 };
 
-module.exports = TodoActions;
+module.exports = UIEventHandlers;

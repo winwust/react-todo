@@ -2,7 +2,6 @@ var React = require('react');
 var TodoTextInput = require('./TodoTextInput.react');
 var TodoList = require('./TodoList.react');
 var TodoStore = require('../stores/TodoStore');
-var TodoActions = require('../actions/TodoActions');
 
 var getTodoState = function() {
     return {
@@ -29,7 +28,6 @@ var TodoApp = React.createClass({
                 <h1>Todo List</h1>
                 <TodoTextInput 
                     placeholder="What needs to be done?"
-                    onSave={this._onSave}
                 />
                 <TodoList items={this.state.allTodos}/>
             </section>
@@ -39,10 +37,6 @@ var TodoApp = React.createClass({
     _onChange: function() {
         this.setState(getTodoState());
     },
-    
-    _onSave: function(text) {
-        TodoActions.create(text);
-    }
 });
 
 module.exports = TodoApp;

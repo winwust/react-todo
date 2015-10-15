@@ -1,11 +1,12 @@
 var TodoConstants = require('../constants/TodoConstants');
-var ServerActions = require('../actions/ServerActions');
+
+var ServerEventHandlers = require('../actions/ServerEventHandlers');
 
 module.exports = {
     getTodoList: function() {
         $.get(TodoConstants.api.RESOURCE, function(data) {
             if (!data.error) {
-                ServerActions.receiveListItems(data);
+                ServerEventHandlers.receiveListItems(data);
             }
         });
     },

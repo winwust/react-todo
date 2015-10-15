@@ -3,8 +3,7 @@ module.exports = {
         CHANGE_EVENT: 'change'    
     },
     actionType: {
-        TODO_CREATE: 'create',
-        SERVER_LIST_MSG: 'server_list'
+        LIST_ITEMS: 'list_items'
     },
     keyCode: {
         ENTER: 13

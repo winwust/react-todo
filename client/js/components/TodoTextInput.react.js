@@ -1,4 +1,5 @@
 var React = require('react');
+var UIEventHandlers = require('../actions/UIEventHandlers');
 var TodoConstants = require('../constants/TodoConstants');
 
 var TodoTextInput = React.createClass({
@@ -23,7 +24,7 @@ var TodoTextInput = React.createClass({
     },
     
     _save: function() {
-        this.props.onSave(this.state.value);
+        UIEventHandlers.createTodo(this.state.value);
         this.setState({
             value: ''
         });
