@@ -1,5 +1,5 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var TodoConstants = require('../constants/TodoConstants');
+var dispatcher = require('../dispatcher/client.dispatcher');
+var todoConstants = require('../constants/todo.constants');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
@@ -18,21 +18,21 @@ var TodoStore = assign({}, EventEmitter.prototype, {
     },
     
     emitChange: function() {
-        this.emit(TodoConstants.eventType.CHANGE_EVENT);
+        this.emit(todoConstants.storeEventType.CHANGE);
     },
     
     addChangeListener: function(callback) {
-        this.on(TodoConstants.eventType.CHANGE_EVENT, callback);
+        this.on(todoConstants.storeEventType.CHANGE, callback);
     },
     
     removeChangeListener: function(callback) {
-        this.removeListener(TodoConstants.eventType.CHANGE_EVENT, callback);
+        this.removeListener(todoConstants.storeEventType.CHANGE, callback);
     }
 });
 
 var actionHandler = function(actionObj) {
     switch(actionObj.type) {
-        case TodoConstants.actionType.LIST_ITEMS:
+        case todoConstants.actionType.LIST_ITEMS:
             _createTodos(actionObj.data);
             TodoStore.emitChange();
             break;
@@ -40,7 +40,6 @@ var actionHandler = function(actionObj) {
             break;
     }
 };
-
-AppDispatcher.register(actionHandler);
+dispatcher.register(actionHandler);
 
 module.exports = TodoStore;

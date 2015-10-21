@@ -1,19 +1,18 @@
-var TodoConstants = require('../constants/TodoConstants');
-
-var ServerEventHandlers = require('../actionhelpers/ServerEventHandlers');
+var todoConstants = require('../constants/todo.constants');
+var serverEventsHandler = require('../actionhelpers/server.events.handler');
 
 module.exports = {
     getTodoList: function() {
-        $.get(TodoConstants.api.RESOURCE, function(data) {
+        $.get(todoConstants.api.RESOURCE, function(data) {
             if (!data.error) {
-                ServerEventHandlers.receiveListItems(data);
+                serverEventsHandler.receiveListItems(data);
             }
         });
     },
     
     createTodo: function(text) {
         var getTodoList = this.getTodoList;
-        $.post(TodoConstants.api.RESOURCE, {text: text}, function(message) {
+        $.post(todoConstants.api.RESOURCE, {text: text}, function(message) {
             if (!message.error) {
                 getTodoList();
             }
@@ -22,7 +21,7 @@ module.exports = {
     
     removeTodo: function(id) {
         var getTodoList = this.getTodoList;
-        var url = TodoConstants.api.RESOURCE + '/' + id;
+        var url = todoConstants.api.RESOURCE + '/' + id;
         $.ajax({
             url: url,
             type: 'DELETE',

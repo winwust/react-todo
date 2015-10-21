@@ -1,6 +1,6 @@
 var React = require('react');
-var UIEventHandlers = require('../actionhelpers/UIEventHandlers');
-var TodoConstants = require('../constants/TodoConstants');
+var uiEventsHandler = require('../actionhelpers/ui.events.handler');
+var todoConstants = require('../constants/todo.constants');
 
 var TodoTextInput = React.createClass({
     getInitialState: function() {
@@ -24,14 +24,14 @@ var TodoTextInput = React.createClass({
     },
     
     _save: function() {
-        UIEventHandlers.createTodo(this.state.value);
+        uiEventsHandler.createTodo(this.state.value);
         this.setState({
             value: ''
         });
     },
     
     _onKeyDown: function(evt) {
-        if (evt.keyCode === TodoConstants.keyCode.ENTER) {
+        if (evt.keyCode === todoConstants.keyCode.ENTER) {
             this._save();
         }
     },

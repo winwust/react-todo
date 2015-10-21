@@ -1,6 +1,6 @@
 module.exports = {
-    eventType: {
-        CHANGE_EVENT: 'change'    
+    storeEventType: {
+        CHANGE: 'change'    
     },
     actionType: {
         LIST_ITEMS: 'list_items'

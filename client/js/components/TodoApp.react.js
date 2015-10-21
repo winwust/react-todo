@@ -1,11 +1,11 @@
 var React = require('react');
 var TodoTextInput = require('./TodoTextInput.react');
 var TodoList = require('./TodoList.react');
-var TodoStore = require('../stores/TodoStore');
+var todoStore = require('../stores/todo.store');
 
 var getTodoState = function() {
     return {
-        allTodos: TodoStore.getAll()
+        allTodos: todoStore.getAll()
     };
 };
 
@@ -15,11 +15,11 @@ var TodoApp = React.createClass({
     },
     
     componentDidMount: function() {
-        TodoStore.addChangeListener(this._onChange);
+        todoStore.addChangeListener(this._onChange);
     },
     
     componentWillUnmount: function() {
-        TodoStore.removeChangeListener(this._onChange);
+        todoStore.removeChangeListener(this._onChange);
     },
     
     render: function() {

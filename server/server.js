@@ -5,9 +5,7 @@ var bodyParser = require('body-parser');
 var app = express();
  
 app.use(bodyParser.urlencoded({extended: true}));
-
-app.use('/api', require('./app/dispatcher'));
-//app.use(express.static('../client'));
+app.use('/api', require('./app/dispatcher/server.dispatcher'));
 app.use(express.static('../client'));
  
 mongoose.connection

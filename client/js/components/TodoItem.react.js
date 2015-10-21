@@ -1,9 +1,9 @@
 var React = require('react');
-var UIEventHandlers = require('../actionhelpers/UIEventHandlers');
+var uiEventsHandler = require('../actionhelpers/ui.events.handler');
 
 var TodoItem = React.createClass({
     _onRemoveClick: function() {
-        UIEventHandlers.removeTodo(this.props.item.id);
+        uiEventsHandler.removeTodo(this.props.item.id);
     },
     
     render: function() {
