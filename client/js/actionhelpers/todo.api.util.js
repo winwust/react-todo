@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 var todoConstants = require('../constants/todo.constants');
 var serverEventsHandler = require('../actionhelpers/server.events.handler');
 
