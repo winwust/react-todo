@@ -1,11 +1,11 @@
 var Todo = require('../models/todo.model');
 
 var list = function(req, res) {
-    Todo.find(function(err, videos) {
+    Todo.find(function(err, todos) {
         if (err) {
             res.json({error: err.message});
         } else {
-            res.json(videos);
+            res.json(todos);
         }
     });
 };
@@ -18,7 +18,7 @@ var create = function(req, res) {
         if (err) {
             res.json({error: err.message});
         } else {
-            res.json({confirmation: 'succeed'});
+            res.json(item);
         }
     })
 };
